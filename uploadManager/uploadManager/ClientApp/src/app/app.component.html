@@ -1,0 +1,17 @@
+<body>
+  <i class="fa-light fa-angle-left " style="color:#ccc;font-size:40px;width:10px;height:10px"></i>
+  <i class="fa-solid fa-user" style="color:#ccc"></i>
+
+  <div style="display: flex; flex-direction: row-reverse;">
+    <exir-sidebar-web-component class="width-style dark" wideMenu="false"></exir-sidebar-web-component>
+    <div style="background-color: darkslategrey; width: 100%;">
+
+      <app-nav-menu></app-nav-menu>
+      <main class="container">
+        {{'ماشین'|translate}}
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+
+</body>

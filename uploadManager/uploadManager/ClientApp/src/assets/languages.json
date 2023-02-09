@@ -1,0 +1,101 @@
+[
+    {
+        "id": 9,
+        "client": null,
+        "key": "Persion",
+        "fa": "فارسی",
+        "en": null,
+        "ar": "الفارسی",
+        "isCommon": true
+    },
+    {
+        "id": 10,
+        "client": null,
+        "key": "Arabic",
+        "fa": "عربی",
+        "en": null,
+        "ar": "العربی",
+        "isCommon": true
+    },
+    {
+        "id": 11,
+        "client": null,
+        "key": "English",
+        "fa": "انگلیسی",
+        "en": null,
+        "ar": "انگلیسی",
+        "isCommon": true
+    },
+    {
+        "id": 12,
+        "client": null,
+        "key": "تایید",
+        "fa": "تایید",
+        "en": "OK",
+        "ar": "تاکید",
+        "isCommon": true
+    },
+    {
+        "id": 13,
+        "client": null,
+        "key": "انصراف",
+        "fa": "انصراف",
+        "en": "Cancel",
+        "ar": "الغاء",
+        "isCommon": true
+    },
+    {
+        "id": 21,
+        "client": null,
+        "key": "سلام ",
+        "fa": "سلام",
+        "en": null,
+        "ar": "سلام علیکم",
+        "isCommon": true
+    },
+    {
+        "id": 2833,
+        "client": null,
+        "key": "ایران",
+        "fa": "ایران",
+        "en": null,
+        "ar": "ایران",
+        "isCommon": true
+    },
+    {
+        "id": 2834,
+        "client": null,
+        "key": "عراق",
+        "fa": "عراق",
+        "en": null,
+        "ar": "العراق",
+        "isCommon": true
+    },
+    {
+        "id": 2835,
+        "client": null,
+        "key": "سوریه1",
+        "fa": "سوریه",
+        "en": null,
+        "ar": "السوریه",
+        "isCommon": true
+    },
+    {
+        "id": 3358,
+        "client": null,
+        "key": "یمن",
+        "fa": "یمن",
+        "en": null,
+        "ar": "الیمن",
+        "isCommon": true
+    },
+    {
+        "id": 3359,
+        "client": null,
+        "key": "افغانستان",
+        "fa": "افغانستان",
+        "en": null,
+        "ar": "الافغانستان",
+        "isCommon": true
+    }
+]

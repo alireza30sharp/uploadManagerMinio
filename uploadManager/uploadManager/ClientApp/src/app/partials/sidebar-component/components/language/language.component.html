@@ -1,0 +1,35 @@
+<fieldset class="dir-field-container dir-field-value dir-field-icon-left"
+          (click)="active = !active">
+
+  <i class="dir-icon-left" [ngClass]="active ? 'icon-fo-arrow-up-curved2' : 'icon-fo-arrow-down-curved2'">
+    <img src="assets\svg\fo-arrow-left-curved2.svg" class="transition" [ngClass]="active ? 'rotate-down' : 'rotate-up'">
+  </i>
+
+  <div class="dir-field">
+
+    <p>{{activeLang.title |translate}}</p>
+
+  </div>
+
+  <legend class="dir-space-label">انتخاب زبان</legend>
+  <label class="dir-label">انتخاب زبان</label>
+</fieldset>
+
+
+
+<div class="kala--language-main">
+
+  <div class="kala--language-list"
+       [class.kala--d-none]="!active">
+
+    <ng-container *ngFor="let l of languages;let first = first">
+      <button (click)="onLangChange(l)">
+        {{l.title |translate}}
+      </button>
+      <hr class="kala--splitter-hr"
+          *ngIf="first">
+    </ng-container>
+
+  </div>
+
+</div>

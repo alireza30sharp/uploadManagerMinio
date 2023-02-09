@@ -1,0 +1,33 @@
+<fieldset class="dir-field-container dir-field-value dir-field-icon-left"
+          (click)="active = !active">
+
+  <i class="dir-icon-left" [ngClass]="active ? 'icon-fo-arrow-up-curved2' : 'icon-fo-arrow-down-curved2'">
+    <img src="assets\svg\fo-arrow-left-curved2.svg" class="transition" [ngClass]="active ? 'rotate-down' : 'rotate-up'">
+  </i>
+
+  <div class="dir-field">
+
+    <p>{{activeCountry.title |translate}}</p>
+
+  </div>
+
+  <legend class="dir-space-label">انتخاب کشور</legend>
+  <label class="dir-label">انتخاب کشور</label>
+</fieldset>
+
+
+
+<div class="kala--countries-main">
+  
+  <div class="kala--country-list" [class.kala--d-none]="!active">
+
+    <ng-container *ngFor="let c of countries;let last = last">
+      <button (click)="onCountryChange(c)">
+        <img [src]="c.flagUrl" loading="lazy" />
+        {{c.title |translate}}
+      </button>
+      <hr class="kala--splitter-hr" *ngIf="!last">
+    </ng-container>
+
+  </div>
+</div>

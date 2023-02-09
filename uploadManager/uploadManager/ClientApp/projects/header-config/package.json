@@ -1,0 +1,11 @@
+{
+  "name": "@alireza/ngx-header-config",
+  "author": "alireza",
+  "version": "1.0.0",
+  "description": "Header Config Library",
+  "peerDependencies": {},
+  "dependencies": {
+   
+    "@ngx-translate/core": "^11.0.0"
+  }
+}

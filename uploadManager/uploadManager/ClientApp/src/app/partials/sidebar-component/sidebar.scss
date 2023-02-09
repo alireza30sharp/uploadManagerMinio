@@ -1,0 +1,1301 @@
+$border-color: #eee;
+
+/*============ New Sidebar Start ============*/
+
+:host {
+  --bg-sidebar: #ffffff;
+  --texts-sidebar: #000000;
+  --lines-sidebar: rgba(0, 0, 0, 0.08);
+}
+
+:host(.dark) {
+  --bg-sidebar: #252525;
+  --texts-sidebar: #ffffff;
+  --lines-sidebar: rgba(255, 255, 255, 0.08);
+
+  .change-color {
+    filter: invert(1);
+  }
+
+  .list-group-item:hover {
+    background-color: #3f3f3f;
+  }
+
+  .list-group-item-primary:hover {
+    background-color: #393f46 !important;
+  }
+}
+
+.sidebar-container {
+  color: var(--texts-sidebar);
+  position: absolute;
+  right: 1rem;
+  direction: rtl;
+}
+
+#logo {
+  width: 24px;
+  height: 24px;
+}
+
+.position-fixed {
+  bottom: 20px;
+  width: 13%;
+}
+
+.icon-size {
+  width: 24px;
+  height: 24px;
+}
+
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.change-color {
+  filter: invert(0);
+}
+
+.list-group-item {
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.list-group-item:hover {
+  background-color: #f6f6f6;
+}
+
+.list-group-item-primary:hover {
+  background-color: #e8edff !important;
+}
+
+.hide {
+  width: 4% !important;
+}
+
+.bg-side {
+  background-color: var(--bg-sidebar);
+  height: 95%;
+  border-radius: 15px;
+  position: fixed;
+  z-index: 100;
+}
+
+.activeMenu {
+  background-color: #EA4335 !important;
+
+  & i, span {
+    color: var(--white-txt) !important;
+  }
+}
+
+.w-40 {
+  width: 40px;
+}
+
+.w-183 {
+  width: 183px;
+}
+
+:host {
+  width: 85px;
+  transition: all ease-in-out 0.4s;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+
+  .menu-w {
+    width: 0;
+  }
+
+  .rotate-icon {
+    transform: rotate(0deg);
+  }
+
+  .sidebar-container {
+    width: 40px;
+  }
+}
+
+:host(.is-large-menu) {
+  width: 254px;
+
+  .menu-w {
+    width: 9rem;
+  }
+
+  .rotate-icon {
+    transform: rotate(180deg);
+  }
+
+  .sidebar-container {
+    width: 183px;
+  }
+}
+
+.w-0 {
+  width: 0 !important;
+}
+
+.list-group-item {
+  height: 24px;
+  border: none !important;
+  border-radius: 8px !important;
+  overflow-x: hidden;
+  white-space: nowrap;
+
+  & span {
+    width: 85px;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+}
+
+.line {
+  border-top: 1px solid var(--lines-sidebar);
+}
+
+@media screen and (min-width: 10px) and (max-width: 1365px) {
+  .bg-side {
+    height: 94.2%;
+  }
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1439px) {
+  .bg-side {
+    height: 92.8%;
+  }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+  .bg-side {
+    height: 94.7%;
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+  .bg-side {
+    height: 93.8%;
+  }
+}
+
+/*============ New Sidebar End ============*/
+
+/*============ Global Styles Start ============*/
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.pb-3 {
+  padding-bottom: 1rem !important;
+}
+
+.px-3 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.f-11 {
+  font-size: 11px !important;
+}
+
+.list-group {
+  --bs-list-group-color: #212529;
+  --bs-list-group-bg: #fff;
+  --bs-list-group-border-color: rgba(0, 0, 0, 0.125);
+  --bs-list-group-border-width: 1px;
+  --bs-list-group-border-radius: 0.375rem;
+  --bs-list-group-item-padding-x: 1rem;
+  --bs-list-group-item-padding-y: 0.5rem;
+  --bs-list-group-action-color: #495057;
+  --bs-list-group-action-hover-color: #495057;
+  --bs-list-group-action-hover-bg: #f8f9fa;
+  --bs-list-group-action-active-color: #212529;
+  --bs-list-group-action-active-bg: #e9ecef;
+  --bs-list-group-disabled-color: #6c757d;
+  --bs-list-group-disabled-bg: #fff;
+  --bs-list-group-active-color: #fff;
+  --bs-list-group-active-bg: #0d6efd;
+  --bs-list-group-active-border-color: #0d6efd;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: var(--bs-list-group-border-radius);
+}
+
+.list-group a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.list-group-flush {
+  border-radius: 0 !important;
+}
+
+.px-0 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.gap-3 {
+  gap: 0.6rem !important;
+}
+
+.gap-1rem {
+  gap: 1rem !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mx-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.gap-2 {
+  gap: 0.5rem !important;
+}
+
+.gap-4 {
+  gap: 0.8rem !important;
+}
+
+.px-1 {
+  padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.w-0 {
+  width: 0 !important;
+}
+
+.primary-color {
+  color: #6184FF !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.f-26 {
+  font-size: 26px !important;
+}
+
+.gray-color {
+  color: #ABB5BD !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.py-15 {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.transition {
+  transition: all ease-in-out 0.4s;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+}
+
+/*============ Global Styles End ============*/
+
+/*============ Mega menu Start ============*/
+
+.kala--ngx-tools {
+  background-color: #fff;
+  width: 350px;
+  max-height: 438px;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
+  bottom: 0;
+  left: -22.5rem;
+  padding: 20px 0px;
+  transition: 0.2s;
+
+  .kala--client-box {
+    width: 33%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+    transition: 0.2s;
+
+    &:hover {
+      filter: drop-shadow(0 4px 5px #00000030);
+    }
+
+    img {
+      width: 45px;
+      height: 45px;
+      filter: drop-shadow(0 0 10px #00000010);
+    }
+  }
+}
+
+.support-text{
+  position: relative;
+  right: 7px;
+  top: 4px;
+}
+
+.kala--grid-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  & p {
+    color: #686f8c;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.kala--scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.kala--scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.kala--scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+.kala--scroll::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.kala--d-none {
+  /*height: 0 !important;*/
+  overflow: hidden;
+  /*padding: 0 !important;*/
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+}
+
+/*============ Mega menu End ============*/
+
+/*============ Setting Start ============*/
+
+.title-setting {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.bg-dark-modal{
+  position: fixed;
+  background: #000000;
+  left: 0;
+  top: 0;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+  opacity: 10%;
+}
+
+.kala--fast-setting {
+  color: #000;
+  background-color: #fff;
+  width: 250px;
+  height: 343px;
+  padding: 20px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0 !important;
+  left: -18.7rem;
+  box-shadow: unset !important;
+  transition: 0.2s;
+}
+
+
+.dir-field-container {
+  min-width: unset;
+  padding: unset;
+  padding-inline-start: 10px;
+  margin: unset;
+  border: 2px solid #dedede;
+  border-radius: 10px;
+  position: relative;
+  height: 59px;
+  direction: rtl;
+  transition: 0.1s;
+  /*margin-bottom: 30px;*/
+  cursor: pointer;
+
+  &:hover {
+    border-color: #949494;
+
+    & .dir-space-label {
+
+      &::after {
+        background-color: #949494;
+      }
+    }
+  }
+
+  &:focus-within {
+    border-color: #6184ff !important;
+
+    & .dir-label {
+      color: #6184ff !important;
+    }
+  }
+
+  & .dir-text-right {
+    width: 50%;
+    position: absolute;
+    right: 10px;
+    top: 52px;
+    font-size: 12px;
+    color: #949494;
+  }
+
+  & .dir-text-left {
+    position: absolute;
+    left: 10px;
+    top: 52px;
+    font-size: 12px;
+    color: #949494;
+    direction: ltr;
+  }
+
+  & > .dir-icon-right {
+    display: none;
+    position: absolute;
+    top: 8.5px;
+    right: 10px;
+    font-size: 22px;
+  }
+
+  & > .dir-icon-left {
+    display: none;
+    position: absolute;
+    top: 8.5px;
+    left: 10px;
+    font-size: 22px;
+  }
+
+  &.dir-field-icon-right {
+    & .dir-icon-right {
+      display: block;
+    }
+
+    & .dir-field {
+      padding-right: 40px;
+    }
+
+    & .dir-label {
+      right: 40px;
+    }
+
+    & .dir-label {
+      //truncate-styles
+      max-width: 87%;
+    }
+
+    & .dir-space-label {
+      //truncate-styles
+      max-width: 90%;
+    }
+  }
+
+  &.dir-field-icon-left {
+    & .dir-icon-left {
+      display: block;
+    }
+
+    & .dir-field {
+      width: 90%;
+    }
+
+    & .dir-label {
+      //truncate-styles
+      max-width: 87%;
+    }
+
+    & .dir-space-label {
+      //truncate-styles
+      max-width: 90%;
+    }
+  }
+
+  &.dir-field-icon-left.dir-field-icon-right {
+    & .dir-label {
+      //truncate-styles
+      max-width: 80%;
+    }
+
+    & .dir-space-label {
+      //truncate-styles
+      max-width: 84%;
+    }
+  }
+
+  & .dir-label {
+    color: #949494;
+    position: absolute;
+    top: 11px;
+    font-size: 12px;
+    right: 15px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+    //truncate-styles
+    max-width: 92%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.dir-field-value {
+    & .dir-label {
+      top: -15px !important;
+      right: 15px;
+      font-size: 10px;
+      transition: 0.2s ease all;
+    }
+
+    & .dir-space-label {
+      &::after {
+        opacity: 0 !important;
+      }
+    }
+  }
+
+  & .dir-space-label {
+    color: transparent;
+    float: unset;
+    width: unset;
+    padding: 0 5px;
+    margin-bottom: unset;
+    font-size: 10px;
+    line-height: unset;
+    position: relative;
+    user-select: none;
+    //truncate-styles
+    max-width: 96%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &::after {
+      content: "-";
+      background-color: #dedede;
+      width: 100%;
+      height: 2px;
+      color: transparent;
+      font-weight: bold;
+      position: absolute;
+      top: 6.5px;
+      right: 0;
+      transition: 0.1s;
+    }
+  }
+
+  & .dir-field {
+    width: 97%;
+    height: 52px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: none !important;
+    border-radius: 10px;
+    padding: 0 15px;
+    background-color: transparent !important;
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  &.field-disable {
+    pointer-events: none;
+    opacity: 50%;
+  }
+
+  &.field-error {
+    border-color: red;
+
+    & .dir-space-label {
+      &:after {
+        background-color: red;
+      }
+    }
+
+    & .dir-label {
+      color: red;
+    }
+
+    & .dir-text-right {
+      color: red;
+    }
+  }
+
+  &.field-empty {
+    background-color: lighten(#dedede, 50%);
+    border-color: lighten(#dedede, 50%);
+
+    & .dir-space-label {
+      &:after {
+        background-color: lighten(#dedede, 50%);
+      }
+    }
+
+    & .dir-label {
+      color: lighten(#949494, 22%);
+    }
+  }
+
+  &.field-without-label {
+    height: 56px;
+
+    & .dir-field {
+      top: 0;
+    }
+
+    & .dir-label {
+      top: 17px;
+    }
+  }
+}
+
+.kala--countries-main {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  z-index: 2;
+
+  .kala--country-header {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: 0.2s;
+    outline: 0;
+    font-size: 16px;
+
+    &:hover {
+      background-color: #edf4ff;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      object-fit: cover;
+    }
+  }
+
+  .kala--country-list {
+    width: 100%;
+    height: 322px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 15px #00000017;
+    padding: 2px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.2s;
+
+    button {
+      width: 100%;
+      border: none;
+      text-align: right;
+      direction: rtl;
+      cursor: pointer;
+      background: none;
+      font-size: 14px;
+      padding: 19px 1rem 18px 6px;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      color: #686f8c;
+      gap: 5px;
+
+      &:hover {
+        background-color: #f9f9f9;
+        border-radius: 1rem;
+      }
+
+      & img {
+        margin-left: 5px;
+        border-radius: 65px;
+        height: 17px;
+        width: 17px;
+        object-fit: cover;
+      }
+
+      &:nth-last-child(1) {
+        border-bottom: none !important;
+      }
+      /*&:hover {
+        box-shadow: 0 0 100px #00000020, 0 0 150px #00000010;
+      }*/
+    }
+  }
+}
+
+.kala--language-main {
+  display: flex;
+  position: relative;
+  z-index: 1;
+
+  .kala--language-header {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    direction: rtl;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0 10px;
+    transition: 0.2s;
+    outline: 0;
+    font-size: 13.3px;
+
+    &::after {
+      content: "";
+      border: solid black;
+      border-width: 0 2px 2px 0;
+      border-radius: 0 0 5px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      background-color: #edf4ff;
+    }
+  }
+
+  .kala--language-list {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px #00000017;
+    padding: 2px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.2s;
+    justify-content: space-between;
+
+    button {
+      width: 100%;
+      border: none;
+      text-align: right;
+      direction: rtl;
+      cursor: pointer;
+      padding: 20px 6px;
+      border-radius: 0;
+      background: none;
+      font-size: 14px;
+      padding-right: 1rem;
+      color: #686f8c;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: #f9f9f9;
+        border-radius: 1rem;
+      }
+
+      &:nth-last-child(1) {
+        border-bottom: none !important;
+      }
+      /*&:hover {
+        box-shadow: 0 0 100px #00000020, 0 0 150px #00000010;
+      }*/
+    }
+  }
+}
+
+.kala--splitter-hr {
+  border: 0px;
+  margin: 0 10px;
+  height: 1px !important;
+  background-color: #ebebeb;
+}
+
+.rotate-up {
+  transform: rotate(-90deg);
+}
+
+.rotate-down {
+  transform: rotate(90deg);
+}
+
+.toggle-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  & p {
+      font-size: 14px;
+      margin: 0;
+  }
+}
+
+.text-red {
+  color: lighten(#a21, 30%);
+}
+
+.button-toggle-wrap {
+  height: 22px;
+  cursor: pointer;
+}
+
+.button-toggle {
+  display: inline-block;
+  background: lighten(#555, 40%);
+  border-radius: 50px;
+  width: 40px;
+  height: 18px;
+  padding: 2px;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.22);
+
+  .handle {
+    position: absolute;
+    left: 24px;
+    right: auto;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.33, 1.6, 0.66, 1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.22);
+  }
+}
+
+.toggler {
+  display: none;
+
+  &:checked {
+    & + .button-toggle {
+      background: #6184FF;
+
+      .handle {
+        left: 2px;
+      }
+    }
+  }
+}
+
+.btn-more-setting {
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #6184FF;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid #E2E2E2;
+}
+
+/*============ Setting End ============*/
+
+/*============ Profile Start ============*/
+
+.kala--detials-user {
+  background-color: #fff;
+  width: 191px;
+  height: 240px;
+  padding: 7px 20px 20px 20px;
+  border-radius: 15px;
+  border: 1px solid #00000015;
+  box-shadow: 0 0 15px #00000020;
+  position: absolute;
+  bottom: 0;
+  left: -15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s;
+
+  a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #686f8c;
+
+    img {
+      width: 40px;
+      height: 20px;
+    }
+  }
+
+  .kala--details-user-info {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    padding: 15px 0;
+    border-bottom: 1px solid #ebebeb;
+
+    .kala--details-user-image {
+      padding-left: 15px;
+
+      .kala--details-user-profile-image {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        object-fit: cover;
+        border-radius: 100px;
+        box-shadow: 0 0 15px #00000015;
+      }
+    }
+
+    .kala--details-user-name {
+      width: 64%;
+
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .kala--details-user-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+}
+
+.kala--details-user-info {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  padding: 15px 0;
+  border-bottom: 1px solid #ebebeb;
+
+  .kala--details-user-image {
+    padding-left: 15px;
+
+    .kala--details-user-profile-image {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 100px;
+      box-shadow: 0 0 15px #00000015;
+    }
+  }
+
+  .kala--details-user-name {
+    width: 64%;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+    }
+  }
+}
+
+.kala--red-color {
+  color: #ff395d !important;
+}
+
+.kala--blue-color {
+  color: #6183ff;
+}
+
+.kala--profile-items {
+  transition: 0.2s;
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+}
+
+/*============ Profile End ============*/
+
+
+/*========== Sata Ring Start ==========*/
+
+.kala--bell-notif{
+  position: absolute;
+  right: 4px;
+  top: 0px;
+  font-size: 11px;
+  background: #008b8b;
+  width: fit-content;
+  border-radius: 45px;
+  text-align: center;
+  padding: 0 5px;
+  width: unset !important;
+  overflow: unset !important;
+  transition: unset !important;
+}
+
+.kala--level1_color {
+  background-color: #cbd34e;
+}
+
+.kala--level2_color {
+  background-color: #ffb400;
+}
+
+.kala--level3_color {
+  background-color: #ff2966;
+}
+
+.kala--level4_color {
+  background-color: #ad0101;
+}
+
+.relative{
+  position: relative;
+}
+
+.kala--ring-know-color {
+  font-style: normal;
+  font-size: 10px;
+  border-radius: 50%;
+  padding: 0px 6px;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.kala--ngx-ring {
+  background-color: #fff;
+  width: 350px;
+  height: 503px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  left: -22.5rem;
+  font-size: 14px;
+  color: #686f8c;
+  transition: 0.2s;
+
+  .kala--ngx-ring-events {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+
+    > div {
+      cursor: pointer;
+    }
+  }
+
+  .kala--ngx-ring-footer {
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+
+  .kala--ngx-ring-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+
+    .fo-arrow-bottom {
+      font-size: 8px;
+    }
+
+    .kala--ngx-ring-title-tools {
+      display: flex;
+      justify-content: space-between;
+
+      i {
+        margin: 0 15px;
+      }
+
+      .kala--set-time {
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 5px;
+        border-radius: 5px;
+        left: 5px;
+        top: 40px;
+        z-index: 1000000000;
+        text-align: right;
+        font-size: 12px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .kala--ngx-ring-content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: right;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    background-color: #f8f9ff;
+
+    .kala--ngx-ring-item {
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00000020;
+      padding: 1px 10px 0 10px;
+      background-color: #ffffff;
+
+      & .kala--ngx-ring-message {
+        overflow: hidden;
+        padding-top: 12px;
+      }
+    }
+
+    .kala--show-all {
+      text-align: center;
+    }
+  }
+
+  & .kala--sr-only {
+    position: absolute;
+    top: 48%;
+    left: 36%;
+    direction: ltr;
+    color: #000000;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    padding: 5px 12px;
+    box-shadow: 0 0 20px #00000020;
+    background-image: linear-gradient(45deg, #00000030, #ffffff, #ffffff, #00000030);
+  }
+}
+
+.kala--ngx-ring-step-2 {
+  .kala--ngx-ring-message {
+    margin-bottom: 15px;
+  }
+
+  .kala--ngx-ring-step-2-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-top: -5px;
+  }
+
+  .kala--ngx-ring-step2-content {
+    padding: 10px 5px;
+
+    .kala--ngx-ring-item {
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .kala--ngx-ring-faragiry {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+
+        > div {
+          margin: 0 15px;
+        }
+      }
+    }
+  }
+}

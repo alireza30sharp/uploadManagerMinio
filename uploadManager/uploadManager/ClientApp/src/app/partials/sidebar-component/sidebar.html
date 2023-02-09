@@ -1,0 +1,157 @@
+<div class="sidebar-container bg-side transition d-flex flex-column justify-content-between pb-3 px-3 f-11">
+  <ul class="list-group list-group-flush px-0 gap-1rem">
+    <li class="align-items-center d-flex list-group-item list-group-item-primary mt-3 pointer p-2 gap-2">
+      <a class="d-flex" href="/"><img [src]="logoSrc" id="logo" /></a>
+      <span class="menu-w primary-color">نام سامانه</span>
+    </li>
+    <div class="line"></div>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-4 overflow-hidden">
+      <img src="assets\svg\menu-bult-filled.svg" class="icon-size">
+      <span class="menu-w text-truncate">آیتم اول</span>
+    </li>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-4 overflow-hidden">
+      <img src="assets\svg\menu-bult-filled.svg" class="icon-size">
+      <span class="menu-w text-truncate">آیتم دوم</span>
+    </li>
+
+  </ul>
+
+  <ul class="list-group list-group-flush px-0 gap-3">
+    <div class="line"></div>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-2" (click)="showHeader($event)">
+      <img src="assets\svg\menu-bult-filled.svg" class="icon-size">
+      <span class="menu-w text-truncate">سامانه ها</span>
+    </li>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-2" (click)="showSetting()">
+      <img src="assets\svg\container.svg" class="icon-size">
+      <span class="menu-w text-truncate">تنظیمات سریع</span>
+    </li>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-2 relative">
+      <img src="assets\svg\notification.svg" class="icon-size">
+      <span class="kala--bell-notif" >
+       12
+      </span>
+      <span class="menu-w text-truncate">هشدار‌ها</span>
+    </li>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-2">
+      <a class="d-flex" href="login?destination=portals">
+        <img src="assets\svg\support.svg" class="icon-size">
+
+        <span class="menu-w text-truncate support-text">پشتیبانی</span>
+      </a>
+    </li>
+    <a [href]="href" target="_blank">
+      <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-2">
+        <img src="assets\svg\help-icon.svg" class="icon-size">
+        <span class="menu-w text-truncate">راهنما</span>
+      </li>
+    </a>
+    <li class="align-items-center d-flex list-group-item border-0 pointer p-2 gap-2" (click)="showDetails($event)">
+      <img src="assets\svg\user.svg" class="rounded-circle icon-size">
+      <span class="menu-w text-truncate">نام کاربری</span>
+    </li>
+    <li
+      class="align-items-center d-flex list-group-item list-group-item-primary border-0 primary-color pointer p-2 gap-2"
+      (click)="hideMenu()">
+      <img class="rotate-icon transition icon-size change-color"
+        src="assets\svg\fo-arrow-left-curved2.svg">
+      <span class="menu-w">بستن منو</span>
+    </li>
+  </ul>
+
+
+
+
+
+  <!--Mega Menu Start-->
+  <div class="kala--ngx-tools kala--scroll" [class.kala--d-none]="ngxToolsHidden" #ngxTools
+    *ngxPermissionsOnly="permissionMenuKey">
+    <div class="bg-dark-modal"></div>
+    <ng-container *ngFor="let client of clients">
+      <div class="kala--client-box" >
+ 
+        <a  class="kala--grid-line" target="_blank" (click)="toggle()">
+          <img  loading="lazy">
+          <p class="kala--m-0"></p>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+  <!--Mega Menu End-->
+
+
+
+
+
+
+  <!--Setting Menu Start-->
+  <div class="kala--fast-setting" [class.kala--d-none]="!showSet">
+    <div class="bg-dark-modal"></div>
+    <p class="title-setting">تنظیمات سریع</p>
+
+    <hr class="kala--splitter-hr my-3 mx-0">
+
+    <div class="kala--click-box">
+      <country-component [active]="countryActive"></country-component>
+    </div>
+
+    <div class="kala--click-box mt-3">
+      <language-component [active]="languageActive"></language-component>
+    </div>
+
+    <hr class="kala--splitter-hr my-3 mx-0">
+
+    <div class="toggle-div">
+      <p>حالت تاریک</p>
+      <label class="button-toggle-wrap">
+        <input class="toggler" type="checkbox" data-toggle="button-toggle" />
+        <div class="button-toggle">
+          <div class="handle">
+            <div class="bars"></div>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <hr class="kala--splitter-hr my-3 mx-0">
+
+    <button class="btn-more-setting">
+      تنظیمات بیشتر
+    </button>
+
+  </div>
+  <!--Setting Menu End-->
+
+
+
+
+  <!--Profile Start-->
+  <div class="kala--detials-user" [class.kala--d-none]="ngxDetialsUser" #ngxUserTools>
+    <div class="kala--details-user-info">
+      <div class="kala--details-user-image">
+        <img src="assets\svg\user-prof.svg" class="rounded-circle kala--details-user-profile-image" />
+      </div>
+      <div class="kala--details-user-name">
+        <p class="kala--blue-color">{{ displayName }}</p>
+      </div>
+    </div>
+    <a class="d-flex align-items-center py-15 border-bottom kala--profile-items"
+      href="personal-info" target="_blank">
+      <img src="assets\svg\user-prof.svg" />
+      اطلاعات کاربری
+    </a>
+    <a class="d-flex align-items-center py-15 border-bottom kala--profile-items"
+      href="my-projects" target="_blank">
+      <img src="assets\svg\folder-prof.svg" />
+      پرونده‌های من
+    </a>
+    <a class="d-flex align-items-center py-15 red-color kala--profile-items" href="javascript:void(0)"
+       (click)="logout()">
+      <img src="assets\svg\logout-prof.svg" />
+      خروج
+    </a>
+  </div>
+  <!--Profile End-->
+
+
+</div>
