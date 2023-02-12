@@ -1,0 +1,170 @@
+<div class="calendar-date-container" (click)="$event.stopPropagation()">
+
+  <div *ngIf="config?.type === 'full'" class="calendar-toggle-container">
+    <div class="calendar-toggle" (click)="calendarType = calendarTypeEnums.Static_Calendar">
+      <input class="calendar-toggle-radio" type="radio" name="toggleGroup1-{{calendarId}}" id="toggleGroup1-{{calendarId}}"
+        autocomplete="off" [checked]="calendarType === calendarTypeEnums.Static_Calendar" />
+      <label class="calendar-toggle-btn" for="toggleGroup1-{{calendarId}}">تاریخ دستی</label>
+    </div>
+    <div class="calendar-toggle" (click)="calendarType = calendarTypeEnums.Daynamic_Calendar">
+      <input class="calendar-toggle-radio" type="radio" name="toggleGroup1-{{calendarId}}" id="toggleGroup2-{{calendarId}}"
+        autocomplete="off" [checked]="calendarType === calendarTypeEnums.Daynamic_Calendar" />
+      <label class="calendar-toggle-btn" for="toggleGroup2-{{calendarId}}">تاریخ پویا</label>
+    </div>
+  </div>
+
+  <!-- تاریخ دستی -->
+  <div class="calendar-main-calendar"
+    *ngIf="calendarType == calendarTypeEnums.Static_Calendar && ['full','manual'].includes(config?.type)">
+    <!-- نمایش اکشن های تقویم -->
+    <div class="calendar-date-header">
+      <div class="calendar-event-cal" (click)="selectCustomDate()">
+        <p>{{calendar.monthName}}</p>
+        <p>{{calendar.year}}</p>
+        <i class="icon-fo-arrow-down-curved2"></i>
+      </div>
+      <div class="calendar-navigation-cal">
+        <i class="icon-fo-arrow-left-filled" (click)="nextMonth()"></i>
+        <i class="icon-fo-radio-button-on-filled" (click)="today()"></i>
+        <i class="icon-fo-arrow-right-filled" (click)="previousMonth()"></i>
+      </div>
+    </div>
+
+    <!-- نمایش تقویم -->
+    <div class="calendar-date-calendar" *ngIf="calendarView == calendarViewEnums.Calendar">
+
+      <!-- هدر روزهای تقویم-->
+      <div class="calendar-calendar-day">
+        <div *ngFor="let dayWeek of daysOfWeek" class="calendar-date-item calendar-date-item-header">{{dayWeek.name}}</div>
+      </div>
+
+      <!-- رسم روزهای تقویم-->
+      <ng-container *ngFor="let row of [0,1,2,3,4,5]">
+        <!-- شرط فوق برای نمایش ندادن کل سطری هستش که تاریخ مربوط به این ماه نیست
+         به این صورت که روز اول و آخر سطر رو بررسی میکنه که اگر هردو قابل نمایش نباشن
+         اون سطر نمایش داده نمیشه -->
+        <div class="calendar-calendar-row"
+          *ngIf="(days | slice : row*7 : (row*7)+7)[0].display || (days | slice : row*7 : (row*7)+7)[6].display">
+          <ng-container *ngFor="let day of days | slice : row*7 : (row*7)+7">
+            <div class="calendar-date-item"
+              [class.calendar-date-today]="calendar.now && day.day == +calendar.now.format('DD') && day.month == +calendar.now.format('MM') && day.year == +calendar.now.format('YYYY')"
+              [class.select-day]="calendar.selectedDate && day.day == calendar.selectedDate.day && day.month == calendar.selectedDate.month && day.year == calendar.selectedDate.year"
+              [class.disabled]="!day.display" (click)="selectDay(day)">
+              {{day.day && day.day > 0 ? day.day : ''}}
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <!-- انتخاب ساعت-->
+      <div *ngIf="config?.showTime" class="calendar-calendar-time">
+
+        <!--ثانیه-->
+        <fieldset class="calendar-input-container input-without-placeholder ex-w-100">
+          <input class="calendar-input" type="number" placeholder="ثانیه" [(ngModel)]="calendar.selectedDate.seconds"
+            (change)="changeTime()">
+        </fieldset>
+
+        <span>:</span>
+
+        <!--دقیقه-->
+        <fieldset class="calendar-input-container input-without-placeholder ex-w-100">
+          <input class="calendar-input" type="number" placeholder="دقیقه" [(ngModel)]="calendar.selectedDate.minutes"
+            (change)="changeTime()">
+        </fieldset>
+
+        <span>:</span>
+
+        <!--ساعت-->
+        <fieldset class="calendar-input-container input-without-placeholder ex-w-100">
+          <input class="calendar-input" type="number" placeholder="ساعت" [(ngModel)]="calendar.selectedDate.hour"
+            (change)="changeTime()">
+        </fieldset>
+
+      </div>
+    </div>
+
+    <!-- نمایش پنل انتخاب سال و ماه سفارشی-->
+    <div class="calendar-date-year-month-picker" *ngIf="calendarView == calendarViewEnums.Custom_Year_Month">
+
+      <!-- لیست سال ها -->
+      <div class="years">
+        <i class="icon-fo-arrow-right-curved2" (click)="prevYears()"></i>
+        <div *ngFor="let year of years" class="year-item" [class.selected-custom-year]="customDate.year == year"
+          (click)="selectCustomYear(year)">{{year}}</div>
+        <i class="icon-fo-arrow-left-curved2" (click)="nextYears()"></i>
+      </div>
+
+      <!-- لیست تمام ماههای سال-->
+      <div class="months">
+        <div class="season" *ngFor="let season of [0,1,2,3]">
+          <div *ngFor="let month of months | slice:season*3 : (season*3)+3" class="season-item"
+            [class.selected-custom-month]="customDate.month?.index == month.index" (click)=" selectCustomMonth(month)">
+            {{month.name}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- تاریخ پویا -->
+  <div class="calendar-dynamic-calendar"
+    *ngIf="calendarType == calendarTypeEnums.Daynamic_Calendar && ['full','dynamic'].includes(config?.type)">
+    <p>با انتخاب تاریخ پویا می توانید به ازای هر بار ورود جستجو داده های بروز داشته باشید در این بخش توضیحاتی در رابطه
+      با تاریخ پویا داده شود.</p>
+
+    <!-- انتخاب روز -->
+    <div class="ex-d-flex ex-align-items-center ex-gap-2">
+      <span class="calendar-txt-dynamic-cal">از</span>
+      <fieldset
+        class="calendar-input-container calendar-input-icon-right calendar-input-icon-left input-without-placeholder ex-w-100">
+        <i class="calendar-icon-right icon-fo-minues ex-pointer ex-z-index-1" (click)="minusDay()"></i>
+        <i class="calendar-icon-left icon-fo-pluse ex-pointer ex-z-index-1" (click)="pluseDay();"></i>
+        <input type="number" placeholder="-- --" class="calendar-input" [(ngModel)]="calendarOutput.day">
+      </fieldset>
+      <span class="calendar-txt-dynamic-cal">روز</span>
+    </div>
+
+    <!-- انتخاب ساعت -->
+    <div class="ex-d-flex ex-align-items-center ex-gap-2">
+      <span class="calendar-txt-dynamic-cal">و</span>
+      <fieldset
+        class="calendar-input-container calendar-input-icon-right calendar-input-icon-left input-without-placeholder ex-w-100">
+        <i class="calendar-icon-right icon-fo-minues ex-pointer ex-z-index-1" (click)="minusHour()"></i>
+        <i class="calendar-icon-left icon-fo-pluse ex-pointer ex-z-index-1" (click)="pluseHour()"></i>
+        <input type="number" placeholder="-- --" class="calendar-input" [(ngModel)]="calendarOutput.hour">
+      </fieldset>
+      <span class="calendar-txt-dynamic-cal">ساعت</span>
+    </div>
+
+    <!--  نمایش متن پایین نمایش روز و ساعت در قسمت انتخاب تاریخ پویا-->
+    <!-- <div class="ex-f-14 ex-border-top-gray ex-py-3">
+
+      <span *ngIf="calendarOutput.day || calendarOutput.hour">
+        <span>از</span>
+        <span *ngIf="calendarOutput.day">
+          <span class="ex-primary-color"> {{calendarOutput.day}} </span>
+          <span>روز</span>
+        </span>
+        <span *ngIf="calendarOutput.day && calendarOutput.hour"> و</span>
+        <span *ngIf="calendarOutput.hour">
+          <span class="ex-primary-color"> {{calendarOutput.hour}} </span>
+          <span>ساعت </span>
+        </span>
+        <span> گذشته انتخاب شد</span>
+      </span>
+
+      <span *ngIf="!calendarOutput.day && !calendarOutput.hour">
+        <span>لطفاً</span>
+        <span class="ex-primary-color"> روز </span>
+        <span>یا</span>
+        <span class="ex-primary-color"> ساعت </span>
+        <span>را وارد کنید</span>
+      </span>
+
+    </div> -->
+
+  </div>
+</div>

@@ -1,0 +1,184 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hover {
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+button:focus {
+  outline: none !important;
+}
+
+::ng-deep .ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value {
+  background-color: #0db9f0;
+  color: #fff;
+  direction: ltr;
+}
+
+::ng-deep .ngx-slider-span {
+  outline: none;
+}
+
+.img-20 {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+
+
+
+
+.ngx-slider {
+  top: 12px !important;
+}
+
+
+
+
+::ng-deep .ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value {
+  position: absolute !important;
+  left: 8px !important;
+  background: #fff !important;
+  top: -38px;
+  font-size: 13px;
+  border-radius: 55px;
+  padding: 12px;
+  line-height: 2px;
+  color: #5778fc !important;
+}
+
+::ng-deep .ngx-slider.animate .ngx-slider-bubble.ngx-slider-limit {
+  display: none !important;
+}
+
+::ng-deep .date-range-slider {
+  background-color: #ffffff9e !important;
+}
+
+
+
+
+.date-range-slider {
+  ::ng-deep .ngx-slider .ngx-slider-bar {
+    background: #007bff;
+    height: 2px;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-selection {
+    background: #007bff;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto;
+    bottom: 0;
+    background-color: #007bff !important;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-pointer:after {
+    display: none;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-bubble {
+    bottom: 14px;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-limit {
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-tick {
+    width: 1px;
+    height: 3px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #007bff;
+    top: 0px;
+  }
+
+  ::ng-deep.ngx-slider {
+    .ngx-slider-tick:after {
+      color: #007bff;
+      font-size: 10px;
+      font-weight: bold;
+      position: relative;
+      top: -5px;
+      left: 3px;
+    }
+
+    .ngx-slider-tick:nth-child(4n - 0) {
+      height: 10px;
+      top: -5px;
+      width: 2px;
+
+      &:after {
+        content: "00";
+        top: -7px;
+      }
+    }
+
+    .ngx-slider-tick:nth-child(4n - 1) {
+      &:after {
+        content: "18";
+      }
+    }
+
+    .ngx-slider-tick:nth-child(4n - 2) {
+      &:after {
+        content: "12";
+      }
+    }
+
+    .ngx-slider-tick:nth-child(4n - 3) {
+      &:after {
+        content: "06";
+      }
+    }
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-tick:last-child {
+    left: 2px;
+    width: 2px;
+
+    &:after {
+      content: " ";
+    }
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-tick:first-child {
+    left: -4px;
+    width: 2px;
+  }
+
+  ::ng-deep .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+    background: orange;
+  }
+}
+
+
+
+

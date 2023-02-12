@@ -16,6 +16,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { LanguageComponent } from './partials/sidebar-component/components/language/language.component';
 import { CountryComponent } from './partials/sidebar-component/components/country/country.component';
 import { AppSidebarComponent } from './partials/sidebar-component/sidebar';
+import { CalendarDateComponent } from './calendar/calendar-date.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { SliderTimeComponent } from './slider-time/slider-time.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import { AppSidebarComponent } from './partials/sidebar-component/sidebar';
     FetchDataComponent,
     LanguageComponent,
     CountryComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    CalendarDateComponent,
+    SliderTimeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,10 +38,13 @@ import { AppSidebarComponent } from './partials/sidebar-component/sidebar';
     FormsModule,
     NgxPermissionsModule.forRoot(),
     TranslateModule.forRoot(translateModuleConfig),
+    NgxSliderModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'calendar', component: CalendarDateComponent },
+      { path: 'slider', component: SliderTimeComponent },
     ])
   ],
   providers: [],
