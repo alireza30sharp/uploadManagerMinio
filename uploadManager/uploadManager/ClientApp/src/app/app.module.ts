@@ -16,9 +16,10 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { LanguageComponent } from './partials/sidebar-component/components/language/language.component';
 import { CountryComponent } from './partials/sidebar-component/components/country/country.component';
 import { AppSidebarComponent } from './partials/sidebar-component/sidebar';
-import { CalendarDateComponent } from './calendar/calendar-date.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { SliderTimeComponent } from './slider-time/slider-time.component';
+import { CalendarDateComponent } from './partials/calendar/calendar-date.component';
+import { CalendarDatepickerComponent } from './partials/calendar-datepicker/calendar-datepicker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { SliderTimeComponent } from './slider-time/slider-time.component';
     CountryComponent,
     AppSidebarComponent,
     CalendarDateComponent,
-    SliderTimeComponent
+    SliderTimeComponent,
+    CalendarDatepickerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

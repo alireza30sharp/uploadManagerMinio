@@ -9,6 +9,22 @@
       <app-nav-menu></app-nav-menu>
       <main class="container">
         {{'ماشین'|translate}}
+        <!--<div class="w-50 p-4">
+    <calendar-date [(model)]="date" [config]="config" [locale]="'en'"></calendar-date>
+  </div>
+  <div class="w-50 p-4">
+    <span>تاریخ انتخاب شده: </span><span> {{date | json}} </span>
+  </div>-->
+        <!--<div class="d-flex">
+          <div class="w-25">
+            <calendar-datepicker class="w-25" [config]="config2" [(model)]="fromDate" [placeholder]="'از تاریخ'">
+            </calendar-datepicker>
+
+            <calendar-datepicker class="w-25" [config]="config2" [(model)]="toDate" [placeholder]="'تا تاریخ'">
+            </calendar-datepicker>
+          </div>
+
+        </div>-->
         <router-outlet></router-outlet>
       </main>
     </div>

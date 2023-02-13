@@ -1,0 +1,20 @@
+<div class="calendar-datepicker-container">
+    <fieldset class="calendar-input-container calendar-input-icon-left ">
+        
+        <i (click)="clickInput($event)" class="calendar-icon-left arrow-date-picker"
+           [class.rotate-icon]="isOpen"></i>
+
+        <input *ngIf="model?.day || model?.hour" (click)="clickInput($event)"
+            [value]="(model?.day || model?.hour) ? ((model?.day ? model.day+' روز' : '')+(model?.day && model?.hour ? ' و ' : '')+(model.hour ? model?.hour+' ساعت' : '')) + ' گذشته ' : model?.date"
+            type="text" readonly placeholder=" " class="calendar-input">
+
+        <input *ngIf="!(model?.day || model?.hour)" (click)="clickInput($event)" [value]="model.faDate" type="text"
+            [(ngModel)]="model.faDate" (ngModelChange)="changeDate()" placeholder=" " class="calendar-input">
+            
+        <legend class="calendar-space-label">{{placeholder}}</legend>
+        <label class="calendar-label">{{placeholder}}</label>
+    </fieldset>
+    <div class="calendar-datepicker-panel" [hidden]="!isOpen">
+        <calendar-date [config]="config" [(model)]="model" (modelChange)="onSelectDate($event)"></calendar-date>
+    </div>
+</div>
