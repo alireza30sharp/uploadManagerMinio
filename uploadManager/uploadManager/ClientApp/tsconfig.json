@@ -5,10 +5,13 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": false,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+    "strictPropertyInitialization": false,
+    "sourceMap": false,
     "declaration": false,
+    "noImplicitOverride": false,
+    "noPropertyAccessFromIndexSignature": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
@@ -18,12 +21,19 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@src/*": [ "src/*" ],
+      "@app/*": [ "src/app/*" ],
+      "@models/*": [ "src/models/*" ],
+      "@pages/*": [ "src/app/pages/*" ],
+      "@services/*": [ "src/services/*" ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
   }
 }

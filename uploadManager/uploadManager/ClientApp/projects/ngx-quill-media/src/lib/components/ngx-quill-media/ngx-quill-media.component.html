@@ -1,0 +1,72 @@
+<div class="image-gallery-box position-relative">
+
+    <div *ngIf="loading" class="position-absolute loading-class">بارگذاری ...</div>
+
+    <div class="d-flex image-gallery-box-content">
+        <div class="border-start d-flex flex-column px-2 pt-3">
+            <span *ngFor="let folder of folders; let i = index" class="mb-1 pointer ltr d-flex justify-content-end"
+                (click)="selectFolder(i)" [class.text-success]="folder.check">
+                <i class="me-1 d-flex"> <i class="f-10">({{ folder.count }})</i> {{ folder.name }}</i>
+                <i class="icon-fo-folder position-relative" [style.top.px]="2"></i>
+            </span>
+            <span class="mb-1 pointer ltr d-flex">
+                <input class="me-1 d-flex form-control-sm form-control-plaintext f-11 text-end" placeholder="new"
+                    (keyup.enter)="addFolder($event)">
+                <i class="icon-fo-folder-add position-relative" [style.top.px]="2"></i>
+            </span>
+        </div>
+        <div class="image-gallery w-100">
+            <div class="d-flex flex-wrap">
+                <div *ngFor="let file of files" class="image-box p-2 position-relative" (click)="selectFile(file)">
+                    <img [src]="file.path" class="mb-2">
+                    <span [class.d-none]="!file.check"
+                        class="icon-fo-Activity image-check icon-fo-checked-filled position-absolute"></span>
+                    <div class="d-flex d-flex justify-content-between align-items-center w-100 right-panel">
+                        <a stop-parent class="w-100 text-center icon-fo-pic-filled f-18" [href]="file.path"
+                        target="_blank"></a>
+                       
+                        <ng-container *ngIf="!file.editMode;else edite">
+                            <span stop-parent class="w-100 text-center  f-12"
+                          >
+                          {{file.tags.name?file.tags.name:'بدون نام'}}</span>
+
+                        </ng-container>
+                        <ng-template #edite>
+                       
+                           <input type="text" class="input-edit"
+                            [maxlength]="10" 
+                             id="input"
+                            name="name"
+                            input-unicod
+                            (clickOutside)="file.editMode = false;"
+                            (keyup.enter)="saveUpdateTitle($event, file)"
+                           *ngIf="file.editMode"  [(ngModel)]="file.tags.name">
+                        </ng-template>
+                        <span  class="icon-fo-rename-filled f-16 text-dark-gray ms-2  ng-trigger ng-trigger-fadeAnimation"
+                         *ngIf="!file.editMode" 
+                         (click)="updateTitle($event, file)"
+                         ></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-top d-flex footer-box justify-content-between p-3 image-gallery-box-bottom align-items-center">
+
+        <div>
+            <input type="file" accept="image/jpeg, image/png" multiple class="d-none" #inputUpload
+                (change)="fileCountDetect($event)" />
+            <button class="btn btn-outline-success" *ngIf="!fileCount" (click)="inputUpload.click()">آپلود مدیا
+                جدید</button>
+            <button class="btn btn-outline-success" *ngIf="fileCount" (click)="uploadFile()">آپلود {{ fileCount }}
+                فایل</button>
+        </div>
+
+        <div>
+            <button class="btn btn-outline-primary" (click)="close()">انصراف</button>
+            <button class="btn btn-primary me-2" (click)="sendData()" [disabled]="!selectedSrc">جایگذاری در متن</button>
+        </div>
+
+    </div>
+</div>

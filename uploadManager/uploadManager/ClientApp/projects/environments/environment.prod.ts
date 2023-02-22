@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  origin: 'https://nmy/',
+  origin: 'https://nmpp/',
 
 };
